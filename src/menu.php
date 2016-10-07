@@ -13,7 +13,7 @@ function menu($with_bs = true) {
 	}
 	echo "<li><a href=\"/\">Home</a></li>\n";
 	foreach($dirs as $dir) {
-		printf("<li><a href=\"/%s/\">%1\$s</a></li>\n", $dir);
+		printf("<li><a href=\"/%s/\">%s</a></li>\n", urlencode($dir), htmlentities($dir));
 	}
 	if($with_bs) {
 		echo '
