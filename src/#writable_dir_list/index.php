@@ -2,4 +2,4 @@
 
 header('Content-Type: text/plain');
 
-system("cd ../_writable; pwd; ls -al");
+system("cd ../.writable; pwd; ls -al");
