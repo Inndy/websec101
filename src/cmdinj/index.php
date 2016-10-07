@@ -25,7 +25,22 @@
 			</div>
 		</form>
 		<p></p>
-		<pre><?php if(isset($_POST['IP'])) echo htmlentities(`ping -c1 {$_POST['IP']}`); ?></pre>
+		<pre><?php
+			$black_list = [
+				';', // '&&', '||', '$', '`', "\n"
+			];
+
+			foreach($black_list as $s) {
+				if(strstr($_POST['IP'], $s)) {
+					printf("'%s' not allowed!\n\n", htmlentities($s));
+					$_POST['IP'] = '127.0.0.1';
+				}
+			}
+
+			if(isset($_POST['IP'])) {
+				echo htmlentities(`ping -c1 {$_POST['IP']}`);
+			}
+		?></pre>
 	</div>
 </body>
 </html>
