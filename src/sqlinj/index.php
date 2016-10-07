@@ -181,11 +181,13 @@ if($act == 'show_src') {
 	foreach($db->query('SELECT * FROM msg', PDO::FETCH_CLASS, 'stdClass') as $msg) {
 		printf('<li>%-3d. <a href="?id=%1$d">%s</a></li>', $msg->id, htmlentities($msg->title));
 	}
-} // end of if
 ?>
 			</ul>
 		</div>
 	</div>
+<?php
+} // end of if
+?>
 
 	<footer class="ending">
 		<div class="container">
